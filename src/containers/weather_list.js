@@ -1,15 +1,50 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import {Sparklines, SparklinesLine} from 'react-sparklines'
 
 class WeatherList extends Component {
 
+    renderWeather(cityData){
+        if(cityData){
+
+            const temps = cityData.list.map(weather => { 
+                return weather.main.temp
+            });
+            
+            return (
+                    <tr key={cityData.city.name}>
+                        <td>{cityData.city.name}</td>
+                        <td>
+                        </td>
+                    </tr>
+            );
+        }
+    }
+
     render() {
-        <table clasName="table table-hover">
-            <thead>
-                <tr>
-                
-                </tr>
-            </thead>
-        </table>
+        return (
+            <table className="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>City</th>
+                            <th>Temperature</th>
+                            <th>Pressure</th>
+                            <th>Humidity</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {this.props.weather.map(this.renderWeather)}
+                    </tbody>
+            </table>
+        );
+
     }
 }
+
+function mapStateToProps({weather}){
+    return {
+        weather
+    };
+}
+
+export default connect(mapStateToProps)(WeatherList);
