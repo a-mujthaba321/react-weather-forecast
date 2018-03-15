@@ -10,48 +10,40 @@ module.exports = {
     publicPath:'/'
   },
   devtool: 'inline-source-map',
-  devServer: {
-       contentBase: './',
-       port:3000,
-       inline: true,
-       stats: {
-        colors: true,
-        hash: false,
-        version: false,
-        timings: false,
-        assets: false,
-        chunks: false,
-        modules: false,
-        reasons: false,
-        children: false,
-        source: false,
-        errors: true,
-        errorDetails: true,
-        warnings: true,
-        publicPath: false
-      }
-  },
+  mode: 'development',
+  // devServer: {
+  //      contentBase: './',
+  //      port:3000,
+  //      inline: true,
+  //      stats: {
+  //       colors: true,
+  //       hash: false,
+  //       version: false,
+  //       timings: false,
+  //       assets: false,
+  //       chunks: false,
+  //       modules: false,
+  //       reasons: false,
+  //       children: false,
+  //       source: false,
+  //       errors: true,
+  //       errorDetails: true,
+  //       warnings: true,
+  //       publicPath: false
+  //     }
+  // },
   
   module: {
-    loaders: [{
+    rules: [{
       exclude: /node_modules/,
-      loader: 'babel',
+      loader: 'babel-loader',
       query: {
         presets: ['react', 'es2015', 'stage-1']
       }
     }]
   },
   resolve: {
-    extensions: ['', '.js', '.jsx']
+    extensions: ['.js', '.jsx']
   }
   
-    // output: {
-  //   path: __dirname,
-  //   publicPath: '/',
-  //   filename: 'bundle.js'
-  // },
-  // devServer: {
-  //   historyApiFallback: true,
-  //   contentBase: './'
-  // }
 };
