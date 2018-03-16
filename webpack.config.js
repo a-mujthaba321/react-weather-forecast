@@ -11,27 +11,27 @@ module.exports = {
   },
   devtool: 'inline-source-map',
   mode: 'development',
-  // devServer: {
-  //      contentBase: './',
-  //      port:3000,
-  //      inline: true,
-  //      stats: {
-  //       colors: true,
-  //       hash: false,
-  //       version: false,
-  //       timings: false,
-  //       assets: false,
-  //       chunks: false,
-  //       modules: false,
-  //       reasons: false,
-  //       children: false,
-  //       source: false,
-  //       errors: true,
-  //       errorDetails: true,
-  //       warnings: true,
-  //       publicPath: false
-  //     }
-  // },
+  devServer: {
+       contentBase: './',
+       port:3000,
+       inline: true,
+       stats: {
+        colors: true,
+        hash: false,
+        version: false,
+        timings: false,
+        assets: false,
+        chunks: false,
+        modules: false,
+        reasons: false,
+        children: false,
+        source: false,
+        errors: true,
+        errorDetails: true,
+        warnings: true,
+        publicPath: false
+      }
+  },
   
   module: {
     rules: [{
